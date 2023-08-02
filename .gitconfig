@@ -1,0 +1,11 @@
+[user]
+	name = Tom Moore
+	email = tomwmoore@hotmail.com
+[core]
+	editor = nano
+[color]
+	ui = auto
+[diff]
+	tool = meld
+[merge]
+	tool = meld
