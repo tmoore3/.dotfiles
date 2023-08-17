@@ -1,0 +1,100 @@
+{
+	// Place your snippets for bitbake here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	"Add File": {
+		"prefix": "file",
+		"body": [
+			"file://$1 \\",
+		],
+		"description": "File"
+	},
+
+	"C Boilerplate": {
+		"prefix": "c",
+		"body": [
+			"SUMMARY = \"$1\"",
+			"DESCRIPTION = \"$2\"",
+			"LICENSE = \"MIT\"",
+			"LIC_FILES_CHKSUM = \"file://\\${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302\"",
+			"",
+			"SRC_URI = \"\\",
+			"    file://$3.c \\",
+			"",
+			"TARGET_CC_ARCH += \"\\${LDFLAGS}\"",
+			"",
+			"S = \"\\${WORKDIR}\"",
+			"",
+			"do_compile() {",
+			"    \\${CC} $3.c -o $4",
+			"    }",
+			"",
+			"do_install() {",
+			"    install -d \\${D}\\${bindir}",
+			"    install -m 0755 $4 \\${D}\\${bindir}",
+			"    }",
+			"",
+		], 
+		"description": "C Recipe"
+	},
+
+	"CMake Boilerplate": {
+		"prefix": "cmake",
+		"body": [
+			"SUMMARY = \"$1\"",
+			"DESCRIPTION = \"$2\"",
+			"LICENSE = \"MIT\"",
+			"LIC_FILES_CHKSUM = \"file://\\${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302\"",
+			"",
+			"inherit cmake",
+			"",
+			"SRC_URI = \"\\",
+			"    file://CMakeLists.txt \\",
+			"    file://$3 \\",
+			"    $4\"",
+			"",
+			"S = \"\\${WORKDIR}\"",
+			"",
+			"EXTRA_OECMAKE = \"\"",
+			"",
+		], 
+		"description": "CMake Recipe"
+	},
+
+	"Linux Kernel Module Boilerplate": {
+		"prefix": "module",
+		"body": [
+			"SUMMARY = \"$1\"",
+			"DESCRIPTION = \"$2\"",
+			"LICENSE = \"MIT\"",
+			"LIC_FILES_CHKSUM = \"file://\\${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302\"",
+			"",
+			"inherit module",
+			"",
+			"SRC_URI = \"\\",
+			"    file://Makefile \\",
+			"    file://$3 \\",
+			"    $4\"",
+			"",
+			"S = \"\\${WORKDIR}\"",
+			"",
+			"# The inherit of module.bbclass will automatically name module packages with",
+			"# \"kernel-module-\" prefix as required by the oe-core build environment.",
+			"",
+			"RPROVIDES:\\${PN} += \"kernel-module-$5\"",
+			"",
+		],
+		"description": "Linux Kenrel Module Recipe"
+	}
+}
