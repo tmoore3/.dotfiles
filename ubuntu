@@ -8,7 +8,7 @@ if [[ -z $DOTFILES ]]; then
 fi
 
 #Check if we are using the default .zshrc file
-if ! [[ -L "$HOME/.zshrc" ]]; then
+if [ -f "$HOME/.zshrc" ]; then
 	echo "Deleting default .zshrc file"
 	rm $HOME/.zshrc
 fi
