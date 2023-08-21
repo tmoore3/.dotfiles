@@ -12,29 +12,28 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
+
+	// Boilerplates
+
 	"Linux Kernel Module Boilerplate": {
 		"prefix": "!",
 		"body": [
-		  "MODULE_NAME := $1",
-		  "MODULE_SRC := $1.c",
+		  "obj-m := $1.o",
 		  "",
-		  "obj-m := \\$(MODULE_NAME).o",
+		  "SRC := \\$(shell pwd)",
 		  "",
 		  "all:",
-		  "\t\\$(MAKE) -C \\$(KERNEL_SRC) M=\\$(PWD)",
+		  "\t\\$(MAKE) -C \\$(KERNEL_SRC) M=\\$(SRC)",
 		  "",
 		  "modules_install:",
-		  "\t\\$(MAKE) -C \\$(KERNEL_SRC) M=\\$(PWD) modules_install",
+		  "\t\\$(MAKE) -C \\$(KERNEL_SRC) M=\\$(SRC) modules_install",
 		  "",
 		  "clean:",
-		  "\t\\$(MAKE) -C \\$(KERNEL_SRC) M=\\$(PWD) clean",
+		  "\t\\$(MAKE) -C \\$(KERNEL_SRC) M=\\$(SRC) clean",
 		  "",
-		  "doc:",
-		  "\tperl \\$(KERNEL_SRC)/scripts/kernel-doc -man \\$(MODULE_SRC) > \\$(PWD)/\\$(MODULE_NAME).man",
-		  "",
-		  ".PHONY: all clean doc",
+		  ".PHONY: all modules_install clean",
 		  ""
 		],
 		"description": "Linux Kernel Module Boilerplate"
-	  }
+	}
 }

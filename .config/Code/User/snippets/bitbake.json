@@ -21,8 +21,10 @@
 		"description": "File"
 	},
 
+	// Boilerplates
+
 	"C Boilerplate": {
-		"prefix": "c",
+		"prefix": "!",
 		"body": [
 			"SUMMARY = \"$1\"",
 			"DESCRIPTION = \"$2\"",
@@ -50,7 +52,7 @@
 	},
 
 	"CMake Boilerplate": {
-		"prefix": "cmake",
+		"prefix": "!",
 		"body": [
 			"SUMMARY = \"$1\"",
 			"DESCRIPTION = \"$2\"",
@@ -72,8 +74,36 @@
 		"description": "CMake Recipe"
 	},
 
+	"Systemd Boilerplate": {
+		"prefix": "!",
+		"body": [
+			"SUMMARY = \"$1\"",
+			"DESCRIPTION = \"$2\"",
+			"LICENSE = \"MIT\"",
+			"LIC_FILES_CHKSUM = \"file://\\${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302\"",
+			"",
+			"inherit systemd",
+			"SYSTEMD_AUTO_ENABLE = \"${4|enable,disable|}\"",
+			"SYSTEMD_SERVICE:\\${PN} = \"$3.service\"",
+			"",
+			"SRC_URI = \"\\",
+			"    file://$3.service \\",
+			"",
+			"S = \"\\${WORKDIR}\"",
+			"",
+			"do_install:append() {",
+			"\tinstall -d \\${D}/\\${systemd_unitdir}/system",
+			"\tinstall -m 0644 \\${S}/$3.service \\${D}/\\${systemd_unitdir}/system/",
+			"}",
+			"",
+			"FILES:\\${PN} += \"\\${systemd_unitdir}/system/$3.service\"",
+			"",
+		],
+		"description": "Systemd Boilerplate"
+	},
+
 	"Linux Kernel Module Boilerplate": {
-		"prefix": "module",
+		"prefix": "!",
 		"body": [
 			"SUMMARY = \"$1\"",
 			"DESCRIPTION = \"$2\"",
