@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 if [[ -z $STOW_FOLDERS ]]; then
-    STOW_FOLDERS="starship,vscode,personal,wireshark"
+    STOW_FOLDERS="starship,vscode,personal,wireshark,bash"
 fi
 
 if [[ -z $DOTFILES ]]; then
