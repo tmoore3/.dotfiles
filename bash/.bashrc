@@ -121,8 +121,3 @@ fi
 eval "$(starship init bash)"
 
 source /usr/share/doc/fzf/examples/key-bindings.bash
-
-if [ -f ".bashrc_stm32mp1" ]; then
-    echo ".bashrc_stm32mp1 exists"
-    source .bashrc_stm32mp1
-fi
