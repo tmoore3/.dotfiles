@@ -118,6 +118,19 @@ fi
 
 ## Custom
 
+# set PATH so it includes user's private scripts if it exists
+if [ -d "$HOME/.local/scripts" ] ; then
+    PATH="$HOME/.local/scripts:$PATH"
+fi
+
+# set PATH so it includes STMicroelectronics bin if it exists
+if [ -d "$HOME/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin" ] ; then
+    PATH="$HOME/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin:$PATH"
+fi
+
 eval "$(starship init bash)"
 
 source /usr/share/doc/fzf/examples/key-bindings.bash
+
+bind '"\C-f": " tmux-sessionizer\n"'
+
