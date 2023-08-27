@@ -132,5 +132,6 @@ eval "$(starship init bash)"
 
 source /usr/share/doc/fzf/examples/key-bindings.bash
 
-bind '"\C-f": " tmux-sessionizer\n"'
-
+stty -ixon
+bind '"\C-f": "tmux-sessionizer\n"'
+bind '"\C-s": "tmux-windowizer serial picocom -b 115200 /dev/ttyACM0 && tmux select-window -t serial\n"'
