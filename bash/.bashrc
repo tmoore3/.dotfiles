@@ -118,6 +118,11 @@ fi
 
 ## Custom
 
+# add work aliases
+if [ -f ~/.bash_aliases_work ]; then
+    . ~/.bash_aliases_work
+fi
+
 # set PATH so it includes user's private scripts if it exists
 if [ -d "$HOME/.local/scripts" ] ; then
     PATH="$HOME/.local/scripts:$PATH"
