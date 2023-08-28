@@ -118,6 +118,11 @@ fi
 
 ## Custom
 
+# add functions
+if [ -f ~/.bash_functions ]; then
+    . ~/.bash_functions
+fi
+
 # add work aliases
 if [ -f ~/.bash_aliases_work ]; then
     . ~/.bash_aliases_work
