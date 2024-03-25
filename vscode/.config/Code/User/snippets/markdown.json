@@ -54,7 +54,7 @@
 		"description": "Tool Notes Template"
 	  },
 	  "Fenced Code Block": {
-		"prefix": "`",
+		"prefix": "```",
 		"body": [
 		  "```${1:bash}",
 		  "$2",
