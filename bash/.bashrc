@@ -138,6 +138,11 @@ if [ -d "$HOME/.local/scripts" ] ; then
     PATH="$HOME/.local/scripts:$PATH"
 fi
 
+# set PATH so it includes cargo environment variables if it exists
+if [ -f "$HOME/.cargo/env" ] ; then
+    PATH="$HOME/.cargo/env:$PATH"
+fi
+
 # set PATH so it includes STMicroelectronics bin if it exists
 if [ -d "$HOME/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin" ] ; then
     PATH="$HOME/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin:$PATH"
