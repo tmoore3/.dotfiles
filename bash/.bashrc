@@ -116,42 +116,49 @@ if ! shopt -oq posix; then
   fi
 fi
 
-## Custom
+# Custom changes
 
-# add functions
-if [ -f ~/.bash_functions ]; then
-    . ~/.bash_functions
+# Source bash aliases
+if [ -f $HOME/.bash_aliases ]; then
+    . ~/.bash_aliases
 fi
 
-# add work aliases
-if [ -f ~/.bash_aliases_work ]; then
+if [ -f $HOME/.bash_aliases_work ]; then
     . ~/.bash_aliases_work
 fi
 
-# set PATH so it includes user's bin if it exists
+# Source bash functions
+if [ -f $HOME/.bash_functions ]; then
+    . ~/.bash_functions
+fi
+
+if [ -f $HOME/.bash_functions_work ]; then
+    . ~/.bash_functions_work
+fi
+
+# Source cargo enviroment
+if [ -f $HOME/.cargo/env ]; then
+    . "$HOME/.cargo/env"
+fi
+
+# Add local user bin to PATH
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# set PATH so it includes user's private scripts if it exists
+# Add local scripts bin to PATH
 if [ -d "$HOME/.local/scripts" ] ; then
     PATH="$HOME/.local/scripts:$PATH"
 fi
 
-# set PATH so it includes cargo environment variables if it exists
-if [ -f "$HOME/.cargo/env" ] ; then
-    PATH="$HOME/.cargo/env:$PATH"
-fi
-
-# set PATH so it includes STMicroelectronics bin if it exists
+# Add STM32CubeProgrammer bin to PATH
 if [ -d "$HOME/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin" ] ; then
     PATH="$HOME/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin:$PATH"
 fi
 
+# Init starship
 eval "$(starship init bash)"
 
+# Set key macros
 source /usr/share/doc/fzf/examples/key-bindings.bash
-
 stty -ixon
-bind '"\C-f": "tmux-sessionizer\n"'
-bind '"\C-s": "tmux-windowizer serial picocom -b 115200 /dev/ttyACM0 && tmux select-window -t serial\n"'
