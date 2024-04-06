@@ -522,11 +522,3 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
-
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
-
--- Custom
-
--- Enable system clipboard copying
-set clipboard=unnamedplus
