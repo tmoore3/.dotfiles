@@ -1,8 +1,6 @@
 # ~/.bash_aliases
 
 alias cat='batcat -pp'
-alias python='python3'
+alias ls='ls -a'
 alias tree='tree -a'
-alias nano='nvim'
-
 
