@@ -1,0 +1,25 @@
+{
+    "workbench.colorTheme": "Dracula",
+    "cSpell.ignoreWords": [
+        "GPIO",
+        "IRUGO",
+        "KOBJ",
+        "devm",
+        "gpiod",
+        "gpios",
+        "irqrestore",
+        "irqreturn",
+        "irqsave",
+        "kattr",
+        "kfree",
+        "kzalloc",
+        "pdev",
+        "printk",
+        "sysfs",
+        "uevent"
+    ],
+    "cSpell.languageSettings": [
+
+    ],
+    "cSpell.language": "en-GB"
+}
