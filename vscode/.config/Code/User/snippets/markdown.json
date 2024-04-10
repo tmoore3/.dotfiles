@@ -53,6 +53,16 @@
 		],
 		"description": "Tool Notes Template"
 	  },
+	  "Fenced Code Block- Clipboard": {
+		"prefix": "```",
+		"body": [
+		  "```${1:bash}",
+		  "${CLIPBOARD}",
+		  "```"
+		  ""
+		],
+		"description": "Fenced Code Block - Clipboard"
+	  },
 	  "Fenced Code Block": {
 		"prefix": "```",
 		"body": [
