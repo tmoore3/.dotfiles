@@ -159,6 +159,10 @@ fi
 # Init starship
 eval "$(starship init bash)"
 
-# Set key macros
-source /usr/share/doc/fzf/examples/key-bindings.bash
+# Set key-bind macros
+if [ -d "$HOME/.local/scripts" ] ; then
+    source $HOME/.local/scripts/fzf-key-bindings.bash
+    bind '"\C-e": "nvim $(__fzf_select_hidden__)\n"'
+fi
+
 stty -ixon
