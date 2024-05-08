@@ -1,3 +1,6 @@
 [submodule "personal"]
 	path = personal
 	url = git@github.com:tmoore3/.dotfiles-personal.git
+[submodule "taskwarrior/.task"]
+	path = taskwarrior/.task
+	url = git@github.com:tmoore3/.task.git
