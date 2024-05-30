@@ -2,5 +2,5 @@
 
 alias cat='batcat -pp'
 alias ls='eza'
-alias tree='tree -a'
+alias tree='eza --tree'
 
