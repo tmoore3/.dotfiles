@@ -3,4 +3,4 @@
 alias cat='batcat -pp'
 alias ls='eza'
 alias tree='eza --tree'
-
+alias grep='rg'
